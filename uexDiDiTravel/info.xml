@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uexplugins>
+    <plugin
+        uexName="uexDiDiTravel" version="3.0.0" build="0">
+        <info>0:该对象主要封装了滴滴出行SDK提供的API接口，实现对滴滴出行多种业务线（出、专、快、代、顺）服务的调用</info>
+    </plugin>
+</uexplugins>

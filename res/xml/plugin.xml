@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uexplugins>
+    <plugin
+        className="org.zywx.wbpalmstar.plugin.diditravel.EUExDiDiTravel"
+        uexName="uexDiDiTravel" version="3.0" build="0">
+        <method name="registerApp" />
+        <method name="showDDPage" />
+        <method name="callDDApi" />
+        <method name="getTicket" />
+        <method name="isLogin" />
+        <method name="openPage" />
+        <method name="callPhone" />
+    </plugin>
+</uexplugins>

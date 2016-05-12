@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/main.js"></script>
+    <script src="js/zy_control.js"></script>
+    <script src="js/zy_click.js"></script>
+    <script type="text/javascript">
+
+    window.uexOnload = function(type){
+        
+        uexDiDiTravel.cbGetEstimateTime = function(opCode,dataType,data){
+            alert("--------cbGetEstimateTime--------"+data);
+        }
+        
+        uexDiDiTravel.cbGetEstimatePrice = function(opCode,dataType,data){
+            alert("--------cbGetEstimatePrice--------"+data);
+        }
+        
+        uexDiDiTravel.cbGetCurrentOrderStatus = function(opCode,dataType,data){
+            alert("--------cbGetCurrentOrderStatus--------"+data);
+        }
+        
+        uexDiDiTravel.cbGetCurrentDriverInfo = function(opCode,dataType,data){
+            alert("--------cbGetCurrentDriverInfo--------"+data);
+        }
+        
+        uexDiDiTravel.cbGetOrderList = function(opCode,dataType,data){
+            alert("--------cbGetOrderList--------"+data);
+        }
+        uexDiDiTravel.cbGetTicket = function (opCode,dataType,data){
+        
+            alert("--------cbGetTicket--------"+data);
+        }
+        uexDiDiTravel.cbIsLogin = function (opCode,dataType,data){
+            
+            alert("--------cbIsLogin--------"+data);
+            
+        }
+    }
+    
+    function createRegisterApp() {
+        var appJsonstr = {"appid":document.getElementById("appID").value,"secrect":document.getElementById("secrectID").value}
+         uexDiDiTravel.registerApp(JSON.stringify(appJsonstr));
+    }
+    
+    function createShowDDPage()
+    {
+        var param = {
+            "fromlat":"40.043571",
+            "fromlng":"116.290506",
+            "fromaddr":"",
+            "fromname":"",
+            "tolat":"40.046571",
+            "tolng":"116.200506",
+            "toaddr":"",
+            "toname":"",
+            "biz":"",
+            "phone":"13000000112",
+            "maptype":"wgs84"
+        };
+        uexDiDiTravel.showDDPage(JSON.stringify(param));
+    }
+    
+    function getEstimateTime(){
+        // 预估时间
+        var param1 = {
+            "getEstimateTime":{
+                "fromlat":"40.043571",
+                "fromlng":"116.290506",
+                "fromaddr":"",
+                "fromname":"",
+                "biz":"2",
+                "maptype":"soso"}
+        };
+        uexDiDiTravel.callDDApi(JSON.stringify(param1));
+    }
+
+    function getEstimatePrice(){
+        // 预估车费
+        var param2 = {
+            "getEstimatePrice":{
+                "fromlat":"40.043571",
+                "fromlng":"116.290506",
+                "fromaddr":"",
+                "fromname":"",
+                "tolat":"40.046571",
+                "tolng":"116.200506",
+                "toaddr":"",
+                "toname":"",
+                "biz":"2",
+                "maptype":"soso"}
+        };
+        uexDiDiTravel.callDDApi(JSON.stringify(param2));
+    }
+
+    function getCurrentOrderStatus(){
+        // 获取当前进行中的订单状态
+        var param3 = {
+            "getCurrentOrderStatus":""
+        };
+        uexDiDiTravel.callDDApi(JSON.stringify(param3));
+    }
+    
+    function getCurrentDriverInfo(){
+        // 获取当前进行中订单的司机信息
+        var param4 = {
+            "getCurrentDriverInfo":""
+        };
+        uexDiDiTravel.callDDApi(JSON.stringify(param4));
+    }
+    
+    function getOrderList(){
+        // 获取订单列表
+        var param5 = {
+            "getOrderList":{
+                "size":"10",
+                "offset":"0"}
+        };
+        uexDiDiTravel.callDDApi(JSON.stringify(param5));
+    }
+    
+    function createGetTicket()
+    {
+        var ticketJsonStr = {"type":document.getElementById("typeID").value}
+        uexDiDiTravel.getTicket (JSON.stringify(ticketJsonStr));
+    }
+    
+    function openPageLogin(){
+        // 登录界面
+        var param6 = {
+                "login":{
+                    "finish":"close_page"}
+            };
+        uexDiDiTravel.openPage(JSON.stringify(param6));
+    }
+    
+    function openPageOrderDetail(){
+        // 行程详情界面
+        var param7 = {
+                "orderDetail":{
+                        "biz":"2",
+                        "oid":"didiEBDC34416C121D1D3E4ADBFD6D84F865150C1104590ED6F54B6820F141369CBE"}
+            };
+        uexDiDiTravel.openPage(JSON.stringify(param7));
+    }
+    
+    function openPageOrderList(){
+        // 订单列表界面
+        var param8 = {
+                "orderList":""
+            };
+        uexDiDiTravel.openPage(JSON.stringify(param8));
+    }
+    
+    function openPageInvoice(){
+        // 发票开具界面
+        var param9 = {
+                "invoice":{
+                        "page":"menu"}
+            };
+        uexDiDiTravel.openPage(JSON.stringify(param9));
+    }
+
+    function createCallPhone()
+    {
+        var phoneJsonStr = {"phone":document.getElementById("phoneID").value}
+        uexDiDiTravel.callPhone(JSON.stringify(phoneJsonStr))
+    }
+    
+   </script>
+</head>
+  
+<body>
+      <div class="tit">uexDiDiTravel插件</div>
+      <div class="conbor">
+          <div class="consj">
+            <span>1、注册appid与secrect:</span>
+            <input class="textbox" type="text" id="appID" value="didi64334F4C4F4370356A6A6D75524D4D">
+            <input class="textbox" type="text" id="secrectID" value="0059491bb5795b86d5d938d175aaea84">
+            <input class="btn"  type="button" value="registerApp" onClick="createRegisterApp()"><br><br>
+            
+            <span>2、显示滴滴叫车主页面:</span>
+            <input class="btn"  type="button" value="showDDPage" onClick="createShowDDPage()"><br><br>
+                 
+            <span>3、callDDApi 调用滴滴开放API:</span>
+            <span>getEstimateTime 预估时间:</span>
+            <input class="btn"  type="button" value="getEstimateTime" onClick="getEstimateTime()"><br>
+            <span>getEstimatePrice 预估车费:</span>
+            <input class="btn"  type="button" value="getEstimatePrice" onClick="getEstimatePrice()"><br>
+            <span>getCurrentOrderStatus 获取当前进行中的订单状态:</span>
+            <input class="btn"  type="button" value="getCurrentOrderStatus" onClick="getCurrentOrderStatus()"><br>
+            <span>getCurrentDriverInfo 获取当前进行中订单的司机信息:</span>
+            <input class="btn"  type="button" value="getCurrentDriverInfo" onClick="getCurrentDriverInfo()"><br>
+            <span>getOrderList 获取订单列表:</span>
+            <input class="btn"  type="button" value="getOrderList" onClick="getOrderList()"><br><br>
+                
+            <span>4、getTicket 获取API Ticket:</span>
+            <span>Ticket的类型；0：单次有效； 1：长期有效(一般为2个小时)； 默认为0</span>
+            <input class="textbox" type="text" id="typeID" value="0">
+            <input class="btn"  type="button" value="getTicket" onClick="createGetTicket()"><br><br>
+            
+            <span>5、isLogin 判断当前用户是否登录:</span>
+            <input class="btn"  type="button" value="isLogin" onClick="uexDiDiTravel.isLogin()"><br><br>
+                
+            <span>6、openpage 拉起滴滴指定页面:</span>
+            <span>openPageLogin 登录界面:</span>
+            <input class="btn"  type="button" value="openPageLogin" onClick="openPageLogin()"><br>
+            <span>openPageOrderDetail 行程详情界面:</span>
+            <input class="btn"  type="button" value="openPageOrderDetail" onClick="openPageOrderDetail()"><br>
+            <span>openPageOrderList 订单列表界面:</span>
+            <input class="btn"  type="button" value="openPageOrderList" onClick="openPageOrderList()"><br>
+            <span>openPageInvoice 发票开具界面:</span>
+            <input class="btn"  type="button" value="openPageInvoice" onClick="openPageInvoice()"><br><br>
+                
+            <span>7、callPhone 呼叫电话:</span>
+            <input class="textbox" type="text" id="phoneID" value="JWCCRSDFB902307588F8179A8322">
+            <input class="btn"  type="button" value="callPhone" onClick="createCallPhone()"><br><br>
+            
+            </div>
+          </div>
+      </div>
+  </body>
+<script>
+
+</script>
+</html>
+
+
